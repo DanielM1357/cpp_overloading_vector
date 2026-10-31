@@ -1,6 +1,7 @@
 #include "vector.hpp"
 
 #include <iostream>
+#include <cmath>
 
 
 namespace geometry {
@@ -17,14 +18,17 @@ namespace geometry {
   }
 
   double Vector::length() const {
-    double x{0};
 
-    return x;
+    double x_pow{std::pow(this->x, 2)};
+    double y_pow{std::pow(this->y, 2)};
+    double z_pow{std::pow(this->z, 2)};
+
+    return std::sqrt(x_pow + y_pow + z_pow);
   }
 
   double Vector::magnitude() const {
-    double x;
-    return x;
+
+    return this->Vector::length();
   }
 
   Vector Vector::cross(const Vector& other) const {
