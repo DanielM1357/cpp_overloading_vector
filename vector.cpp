@@ -2,19 +2,18 @@
 
 #include <iostream>
 
-namespace geometry {
 
-  Vector::Vector() {}
-  Vector::Vector(double x, double y, double z) {}
+namespace geometry {
 
   // const before '{' marks that this is const
   // if an object is const it has to be declared within
   // the member function, that the object will not be changed
   // which is guaranteed by placing const at the end
   double Vector::dot(const Vector& other) const {
-    double x{0};
 
-    return x;
+    double dot{this->x*other.x + this->y*other.y + this->z*other.z};
+
+    return dot;
   }
 
   double Vector::length() const {
@@ -38,8 +37,13 @@ namespace geometry {
 
   };
   Vector Vector::operator-(const Vector& second) const {}
-  double Vector::operator*(const Vector& second) const {}
-  Vector Vector::operator*(double scalar) const {}
+
+  double Vector::operator*(const Vector& second) const {
+    return this->Vector::dot(second);
+  }
+  Vector Vector::operator*(double scalar) const {
+
+  }
 
   Vector operator*(double scalar, const Vector& v) {}
   std::ostream& operator<<(std::ostream& out, const Vector& v) {}

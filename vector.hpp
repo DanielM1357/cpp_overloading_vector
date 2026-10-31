@@ -7,8 +7,9 @@ namespace geometry {
 
   class Vector {
   public:
-    Vector();
-    Vector(double x, double y, double z);
+    Vector(double x, double y, double z):
+      x{x}, y{y}, z{z} {}
+    Vector(): Vector(0, 0, 0) {}
     double dot(const Vector& other) const;
     double length() const;
     double magnitude() const;
