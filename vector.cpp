@@ -32,6 +32,7 @@ namespace geometry {
   }
 
   Vector Vector::cross(const Vector& other) const {
+
     Vector x{
       this->y*other.z - this->z*other.y
       , this->z*other.x - this->x*other.z
@@ -43,16 +44,36 @@ namespace geometry {
 
   Vector Vector::operator+(const Vector& second) const {
 
-  };
-  Vector Vector::operator-(const Vector& second) const {}
+    Vector x{this->x + second.x, this->y + second.y, this->z + second.z};
+
+    return x;
+  }
+  Vector Vector::operator-(const Vector& second) const {
+
+    Vector x{this->x - second.x, this->y - second.y, this->z - second.z};
+
+    return x;
+  }
 
   double Vector::operator*(const Vector& second) const {
     return this->Vector::dot(second);
   }
   Vector Vector::operator*(double scalar) const {
 
+    Vector x{this->x * scalar, this->y * scalar, this->z * scalar};
+
+    return x;
   }
 
-  Vector operator*(double scalar, const Vector& v) {}
-  std::ostream& operator<<(std::ostream& out, const Vector& v) {}
+  Vector operator*(double scalar, const Vector& v) {
+
+    Vector x{v.x * scalar, v.y * scalar, v.z * scalar};
+
+    return x;
+  }
+  std::ostream& operator<<(std::ostream& out, const Vector& v) {
+    out << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+
+    return out;
+  }
 }
